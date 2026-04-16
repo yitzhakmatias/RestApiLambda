@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "hKAA+Fx7Xlo=",
+  "success": true,
+  "projectFilePath": "D:\\2026\\work\\lambda\\templates\\RestApiLambda\\SimpleApi\\SimpleApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\matia\\.nuget\\packages\\amazon.lambda.annotations\\1.9.0\\amazon.lambda.annotations.1.9.0.nupkg.sha512",
+    "C:\\Users\\matia\\.nuget\\packages\\amazon.lambda.apigatewayevents\\2.7.3\\amazon.lambda.apigatewayevents.2.7.3.nupkg.sha512",
+    "C:\\Users\\matia\\.nuget\\packages\\amazon.lambda.core\\2.8.1\\amazon.lambda.core.2.8.1.nupkg.sha512",
+    "C:\\Users\\matia\\.nuget\\packages\\amazon.lambda.serialization.systemtextjson\\2.4.5\\amazon.lambda.serialization.systemtextjson.2.4.5.nupkg.sha512",
+    "C:\\Users\\matia\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\matia\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\matia\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\10.0.5\\microsoft.netcore.app.crossgen2.win-x64.10.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}
