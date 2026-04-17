@@ -1,0 +1,65 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "Customer CRUD API on AWS Lambda with DynamoDB",
+  "Parameters": {
+    "CustomersTableName": {
+      "Type": "String",
+      "Default": "customers",
+      "Description": "Existing DynamoDB table name for customer records"
+    }
+  },
+  "Resources": {
+    "CustomerCrudFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "CustomerCrudLambda",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          {
+            "DynamoDBCrudPolicy": {
+              "TableName": { "Ref": "CustomersTableName" }
+            }
+          }
+        ],
+        "Environment": {
+          "Variables": {
+            "CUSTOMERS_TABLE": { "Ref": "CustomersTableName" }
+          }
+        },
+        "Events": {
+          "Root": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/",
+              "Method": "ANY"
+            }
+          },
+          "Proxy": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/{proxy+}",
+              "Method": "ANY"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "ApiBaseUrl": {
+      "Description": "HTTP API endpoint",
+      "Value": {
+        "Fn::Sub": "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
+      }
+    },
+    "TableName": {
+      "Description": "DynamoDB table name",
+      "Value": { "Ref": "CustomersTableName" }
+    }
+  }
+}

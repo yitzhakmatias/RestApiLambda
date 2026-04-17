@@ -1,0 +1,17 @@
+{
+  "Information": [
+    "Default values for AWS Lambda .NET CLI tools.",
+    "Run 'dotnet lambda help' for command options."
+  ],
+  "profile": "default",
+  "region": "us-east-1",
+  "configuration": "Release",
+  "function-name": "customer-api-lambda",
+  "framework": "net8.0",
+  "function-runtime": "dotnet8",
+  "function-memory-size": 256,
+  "function-timeout": 30,
+  "function-handler": "CustomerCrudLambda",
+  "stack-name": "CustomerCrudLambda",
+  "template": "serverless.template"
+}

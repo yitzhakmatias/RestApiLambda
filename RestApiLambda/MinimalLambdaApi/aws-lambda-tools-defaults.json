@@ -8,10 +8,11 @@
   "profile": "default",
   "region": "us-east-1",
   "configuration": "Release",
-  "function-name": "simpleapi-lambda",
+  "function-name": "minimal-api-lambda",
   "function-runtime": "dotnet8",
   "function-memory-size": 256,
   "function-timeout": 30,
-  "function-handler": "SimpleApi::SimpleApi.Functions::Get",
-  "function-role": "simpleapi-lambda-role"
+  "function-handler": "MinimalLambdaApi",
+  "function-url-enable" : true,
+  "function-url-auth": "NONE"
 }

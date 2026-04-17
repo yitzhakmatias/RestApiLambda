@@ -1,0 +1,17 @@
+# Build outputs
+bin/
+obj/
+
+# User and IDE files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Lambda packaging artifacts
+*.zip
+*.tmp
+
+# Logs
+*.log

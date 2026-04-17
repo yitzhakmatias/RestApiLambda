@@ -1,4 +1,5 @@
 using System.Net;
+using System.Text.Json;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Annotations;
@@ -36,10 +37,22 @@ public class Functions
     /// <returns>The response as an implicit <see cref="APIGatewayProxyResponse"/></returns>
     [LambdaFunction]
     [RestApi(LambdaHttpMethod.Get, "/")]
-    public IHttpResult Get(ILambdaContext context)
+    public APIGatewayProxyResponse Get(ILambdaContext context)
     {
         context.Logger.LogInformation("Handling the 'Get' Request");
 
-        return HttpResults.Ok("Hello AWS Serverless");
+        var payload = new GetResponse("Hello AWS Serverless");
+
+        return new APIGatewayProxyResponse
+        {
+            StatusCode = (int)HttpStatusCode.OK,
+            Body = JsonSerializer.Serialize(payload),
+            Headers = new Dictionary<string, string>
+            {
+                { "Content-Type", "application/json" }
+            }
+        };
     }
+
+    private sealed record GetResponse(string Message);
 }
