@@ -34,7 +34,3 @@ public sealed class Customer
         };
     }
 }
-
-public sealed record CreateCustomerRequest(string Name, string Email);
-
-public sealed record UpdateCustomerRequest(string Name, string Email);
